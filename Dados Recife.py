@@ -7,17 +7,6 @@ URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSvFVrhq0t3kaAlYFppS1lYgX
 #Entrada de dados
 dados = pd.DataFrame(pd.read_excel(URL))
 
-#Verificando se há dados Nulos
-#for i in range(len(dados['Vendas'])):
-#  if dados['Vendas'][i].isnan():
-#    if dados['Qtde'][i].notnan():
-#      dados.drop([0,i], inplace=True)
-#  if dados['Qtde'][i].isnan():
-#    if dados['Vendas'][i].notnan():
-#      dados.drop([0,i], inplace=True)
-
-#dados.reset_index(drop = True, inplace = True)
-
 dados['Cidade'].fillna("Recife", inplace=True) #Caso haja dado nulo em cidade colocar padrão como Recife
 dados['Data'].dropna(inplace=True ) #Caso haja dado nulo data e não há como verificar data correta o dado deve ser apagado
 dados['Vendas'].fillna("0", inplace=True) #Caso haja dado nulo em Vendas colocar padrão como 0
